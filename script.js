@@ -21,7 +21,7 @@ const WORK_TAGS = Object.freeze({
 //  + work_tags[]: Список тегов для проекта
 const MY_WORKS = [{
         "title": "ДЗ по предмету \"Веб-технологи\"",
-        "work_link": "https://github.com/Vedji/itmo-js-sem1",
+        "work_link": "https://github.com/Vedji/itmo-web-technologies",
         "desc": "Сборник домашних заданий по предмету \"Веб-технологии\" (1 и 2 семестр).",
         "work_year": "2026",
         "work_tags": [WORK_TAGS
