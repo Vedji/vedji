@@ -15,10 +15,19 @@ body{
     padding: 3rem 1.5rem;
     font-family: 'DM Sans', sans-serif;
 }
-.page{
-    margin-left: 25%;
-    margin-right: 25%;
+@media (min-width: 320){
+    .page{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
+@media (min-width: 1024){
+    .page{
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+}
+
 .person{
     display: flex;
     align-items: center;
@@ -48,6 +57,27 @@ body{
     color: var(--muted);
     margin-bottom: 0.75rem;
     font-weight: 500;
+}
+#filter-bar{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+.filter-btn{
+    padding: 5px 13px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--surface);
+    cursor: pointer;
+    font-family: inherit;
+}
+.filter-btn.active{
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
 }
 .works{
     display: flex;

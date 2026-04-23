@@ -6,7 +6,7 @@ const WORK_TAGS = Object.freeze({
     cpp: "C++",
     python: "Python",
     js: "JavaScript",
-    kotlin: "Kotlin",
+    // kotlin: "Kotlin",
     SQLAlchemy: "SQLAlchemy",
     mirea: "МИРЭА",
     itmo: "ИТМО",
@@ -21,14 +21,11 @@ const WORK_TAGS = Object.freeze({
 //  + work_tags[]: Список тегов для проекта
 const MY_WORKS = [{
         "title": "ДЗ по предмету \"Веб-технологи\"",
-        "work_link": "https://github.com/Vedji/itmo-web-technologies",
+        "work_link": "https://github.com/Vedji/itmo-js-sem1",
         "desc": "Сборник домашних заданий по предмету \"Веб-технологии\" (1 и 2 семестр).",
         "work_year": "2026",
-        "work_tags": [WORK_TAGS
-            .itmo, WORK_TAGS
-            .learn, WORK_TAGS
-            .web_technologies,
-            WORK_TAGS.js
+        "work_tags": [
+            WORK_TAGS.itmo, WORK_TAGS.learn, WORK_TAGS.web_technologies, WORK_TAGS.js
         ],
     },
     {
@@ -36,10 +33,8 @@ const MY_WORKS = [{
         "work_link": "https://github.com/Vedji/ComicsAppMobile",
         "desc": "Мобильное приложение, которое взаимодействует с сервером для чтения и администратирования каталога комиксов.",
         "work_year": "2025",
-        "work_tags": [WORK_TAGS
-            .mirea, WORK_TAGS
-            .learn, WORK_TAGS
-            .cpp
+        "work_tags": [
+            WORK_TAGS.mirea, WORK_TAGS.learn, WORK_TAGS.cpp
         ],
     },
     {
@@ -48,13 +43,7 @@ const MY_WORKS = [{
         "desc": "Сайт с каталогом художественных произведений, таких как манга и комиксы. Так же на сайте есть возможность оставлять комментарии к произведениям, добавлять в избранное и реализована функциональность личного кабинета.",
         "work_year": "2024",
         "work_tags": [
-            WORK_TAGS.mirea,
-            WORK_TAGS.learn,
-            WORK_TAGS.python,
-            WORK_TAGS
-            .SQLAlchemy,
-            WORK_TAGS.backend,
-            WORK_TAGS.frontend
+            WORK_TAGS.mirea, WORK_TAGS.learn, WORK_TAGS.python, WORK_TAGS.SQLAlchemy, WORK_TAGS.backend, WORK_TAGS.frontend
         ],
     },
     {
@@ -62,10 +51,8 @@ const MY_WORKS = [{
         "work_link": "https://github.com/Vedji/Procedural_Programming_HomeWork",
         "desc": "Домашние задание по процедурному программированию в МИРЭА 1 курс 1 семестр.",
         "work_year": "2021",
-        "work_tags": [WORK_TAGS
-            .mirea, WORK_TAGS
-            .learn, WORK_TAGS
-            .cpp
+        "work_tags": [
+            WORK_TAGS.mirea, WORK_TAGS.learn, WORK_TAGS.cpp
         ],
     }
 ];
@@ -77,6 +64,7 @@ function createProjectItem(_work) {
     let work_item = document.createElement("a");
     work_item.setAttribute("class", "works-item");
     work_item.setAttribute("href", _work.work_link);
+    work_item.setAttribute("data-tags", _work.work_tags.join(","));
     // Append work year
     let work_year = document.createElement("span");
     work_year.setAttribute("class", "work-item-year")
@@ -109,10 +97,53 @@ function createProjectItem(_work) {
     works_list.appendChild(work_item);
 }
 
+function setFilter(_tag, _btn){
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.setAttribute("class", "filter-btn");
+    });
+    _btn.setAttribute("class", "filter-btn active");
+    
+    let works = document.querySelectorAll("#works-list > .works-item");
+    works.forEach((item) => {
+        if(_tag === null){
+            item.style.display = "block";
+            return;
+        }
+        item.style.display = item.hasAttribute("data-tags") && item.getAttribute("data-tags").split(",").includes(_tag)  ? "block" : "none";        
+    });
+}
+
+function createFilterBar(_tags){
+    let filterBar = document.getElementById("filter-bar");
+    // filterBar.innerHTML = "";
+
+    // Добавление кнопки "Все"
+    let allFiltersBtn = document.createElement("button");
+    allFiltersBtn.setAttribute("class", "filter-btn active");
+    allFiltersBtn.innerText = "Все";
+    allFiltersBtn.onclick = () => setFilter(null, allFiltersBtn);
+    filterBar.appendChild(allFiltersBtn);
+
+    // Добавление тегов
+    console.log(Object.keys(_tags));
+    Object.keys(_tags).forEach((key) => {
+        let filter_btn = document.createElement("button");
+        filter_btn.setAttribute("class", "filter-btn");
+        filter_btn.innerText = _tags[key];
+        filter_btn.onclick = () => setFilter(_tags[key], filter_btn);
+        filterBar.appendChild(filter_btn);
+    });
+
+}
+
 document.addEventListener(
     "DOMContentLoaded", () => {
         let worksList = document.getElementById("works-list");
         let noResult = document.getElementById("no-results");
+        
+        createFilterBar(WORK_TAGS);
+        
+        
 
         worksList.innerHTML = "";
         MY_WORKS.forEach((_work) => {
