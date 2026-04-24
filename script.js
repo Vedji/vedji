@@ -106,10 +106,10 @@ function setFilter(_tag, _btn){
     let works = document.querySelectorAll("#works-list > .works-item");
     works.forEach((item) => {
         if(_tag === null){
-            item.style.display = "block";
+            item.style.display = "flex";
             return;
         }
-        item.style.display = item.hasAttribute("data-tags") && item.getAttribute("data-tags").split(",").includes(_tag)  ? "block" : "none";        
+        item.style.display = item.hasAttribute("data-tags") && item.getAttribute("data-tags").split(",").includes(_tag)  ? "flex" : "none";        
     });
 }
 

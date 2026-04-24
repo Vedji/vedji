@@ -15,18 +15,6 @@ body{
     padding: 3rem 1.5rem;
     font-family: 'DM Sans', sans-serif;
 }
-@media (min-width: 320){
-    .page{
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-}
-@media (min-width: 1024){
-    .page{
-        margin-left: 10rem;
-        margin-right: 10rem;
-    }
-}
 
 .person{
     display: flex;
@@ -63,6 +51,7 @@ body{
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-bottom: 0.75rem;
+    justify-content: flex-start;
 }
 .filter-btn{
     padding: 5px 13px;
@@ -94,6 +83,7 @@ body{
     text-decoration: none;
     color: inherit;
     margin-bottom: 0.5rem;
+    flex-direction: column-reverse;
 }
 .works-item:hover{
     border-color: var(--accent);
@@ -119,6 +109,7 @@ body{
 .work-item-body-tags{
     display: flex;
     gap: 0.4rem;
+    flex-wrap: wrap;
 }
 .work-item-body-tag{
     background: var(--accent-light);
@@ -127,6 +118,10 @@ body{
     padding: 2px 8px;
     font-size: 0.75rem;
     text-align: center;
+    min-height: 1.8rem;
+    display: flex;
+    align-items: center;
+    margin: 0;
 }
 #no-results{
     display: block;
@@ -145,4 +140,27 @@ footer{
     color: var(--muted);
     text-align: center;
     font-weight: 300;
+}
+
+/* Media-queries */
+@media screen and (min-width: 319px){
+    .page{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
+@media screen and (min-width: 767px){
+    .page{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    .works-item{
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 1023px){
+    .page{
+        margin-left: 12rem;
+        margin-right: 12rem;
+    }
 }
