@@ -7,7 +7,20 @@
     --accent-light: #E8F0EB;
     --border: #E0DDD6;
     --tag-bg: #ECEAE4;
+
     --padding-section-bottom: 1.5rem;
+
+    --text-header-large: 2rem;
+    --text-header-medium: 1.5rem;
+    --text-header-small: 1rem;
+
+    --text-body-large: 1.12rem;
+    --text-body-medium: 1rem;
+    --text-body-small: .82rem;
+
+    --text-label-large: 1rem;
+    --text-label-medium: .82rem;
+    --text-label-small: .72rem;
 }
 body{
     background: var(--bg);
@@ -26,13 +39,14 @@ body{
 }
 .person-text h1{
     font-family: 'Playfair Display', serif;
+    font-size: var(--text-header-large);
     line-height: 1.1;
     margin: 0;
     font-weight: 100;
 }
 .person-text p{
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: var(--text-label-large);
     font-weight: 300;
     margin-top: 4px;
 }
@@ -40,7 +54,7 @@ body{
     margin-bottom: var(--padding-section-bottom);
 }
 .section-label{
-    font-size: 0.72rem;
+    font-size: var(--text-header-small);
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 0.75rem;
@@ -57,7 +71,7 @@ body{
     padding: 5px 13px;
     border: 1px solid var(--border);
     border-radius: 999px;
-    font-size: 0.78rem;
+    font-size: var(--text-label-medium);
     color: var(--muted);
     background: var(--surface);
     cursor: pointer;
@@ -89,21 +103,22 @@ body{
     border-color: var(--accent);
 }
 .work-year{
-    font-size: 0.78rem;
+    font-size: var(--text-body-large);
     color: var(--muted);
     min-width: 2rem;
     padding-top: 0.1rem;
 }
 .work-item-body-title{
-    font-size: 0.95rem;
+    font-size: var(--text-body-large);
     font-weight: 500;
     margin: 0;
 }
 .work-item-body-desc{
-    font-size: 0.82rem;
+    font-size: var(--text-body-small);
     color: var(--muted);
     font-weight: 300;
-    margin-bottom: 0.5rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
     text-align: justify;
 }
 .work-item-body-tags{
@@ -116,16 +131,16 @@ body{
     color: var(--accent);
     border-radius: 4px;
     padding: 2px 8px;
-    font-size: 0.75rem;
+    font-size: var(--text-label-small);
     text-align: center;
-    min-height: 1.8rem;
+    min-height: 1.2rem;
     display: flex;
     align-items: center;
     margin: 0;
 }
 #no-results{
-    display: block;
-    font-size: 0.88rem;
+    display: none;
+    font-size: var(--text-body-medium);
     color: var(--muted);
     font-weight: 300;
     padding: 1rem 0;
@@ -133,10 +148,9 @@ body{
 }
 
 footer{
-    margin-top: 3rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
-    font-size: 0.78rem;
+    font-size: var(--text-label-medium);
     color: var(--muted);
     text-align: center;
     font-weight: 300;

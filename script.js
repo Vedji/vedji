@@ -6,7 +6,7 @@ const WORK_TAGS = Object.freeze({
     cpp: "C++",
     python: "Python",
     js: "JavaScript",
-    // kotlin: "Kotlin",
+    kotlin: "Kotlin",
     SQLAlchemy: "SQLAlchemy",
     mirea: "МИРЭА",
     itmo: "ИТМО",
@@ -104,13 +104,20 @@ function setFilter(_tag, _btn){
     _btn.setAttribute("class", "filter-btn active");
     
     let works = document.querySelectorAll("#works-list > .works-item");
+    let counter = 0;
     works.forEach((item) => {
         if(_tag === null){
             item.style.display = "flex";
             return;
         }
-        item.style.display = item.hasAttribute("data-tags") && item.getAttribute("data-tags").split(",").includes(_tag)  ? "flex" : "none";        
+        if (item.hasAttribute("data-tags") && item.getAttribute("data-tags").split(",").includes(_tag)){
+            item.style.display = "flex";
+            counter += 1;
+        }else{
+            item.style.display = "none";
+        }
     });
+    document.getElementById("no-results").style.display = counter > 0 || _tag === null ? "none" : "block";
 }
 
 function createFilterBar(_tags){
@@ -149,5 +156,5 @@ document.addEventListener(
         MY_WORKS.forEach((_work) => {
             createProjectItem(_work);
         })
-        noResult.style.visibility = MY_WORKS.length ? "hidden" : "none";
+        noResult.style.display = MY_WORKS.length ? "none" : "block";
     });
