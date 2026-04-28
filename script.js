@@ -10,7 +10,8 @@ const WORK_TAGS = Object.freeze({
     SQLAlchemy: "SQLAlchemy",
     mirea: "МИРЭА",
     itmo: "ИТМО",
-    learn: "Институт"
+    learn: "Институт",
+    db: "Базы данных"
 });
 
 // Список проектов
@@ -19,10 +20,20 @@ const WORK_TAGS = Object.freeze({
 //  + desc: Описание проекта
 //  + work_year: Дата создания проекта
 //  + work_tags[]: Список тегов для проекта
-const MY_WORKS = [{
+const MY_WORKS = [
+    {
+        "title": "ДЗ по проедмету \"Взаимодействие с базами данных\"",
+        "work_link": "https://github.com/Vedji/itmo-db",
+        "desc": "Выполненные домашние задания по предмету \"Взаимодействие с базами данных\"",
+        "work_year": "2026",
+        "work_tags": [
+            WORK_TAGS.itmo, WORK_TAGS.learn, WORK_TAGS.db
+        ],
+    },
+    {
         "title": "ДЗ по предмету \"Веб-технологи\"",
         "work_link": "https://github.com/Vedji/itmo-js-sem1",
-        "desc": "Сборник домашних заданий по предмету \"Веб-технологии\" (1 и 2 семестр).",
+        "desc": "Сборник выполненных домашних заданий по предмету \"Веб-технологии\" (1 и 2 семестр).",
         "work_year": "2026",
         "work_tags": [
             WORK_TAGS.itmo, WORK_TAGS.learn, WORK_TAGS.web_technologies, WORK_TAGS.js
@@ -49,7 +60,7 @@ const MY_WORKS = [{
     {
         "title": "Procedural Programming HomeWork",
         "work_link": "https://github.com/Vedji/Procedural_Programming_HomeWork",
-        "desc": "Домашние задание по процедурному программированию в МИРЭА 1 курс 1 семестр.",
+        "desc": "Выполненные домашние задание по процедурному программированию в МИРЭА 1 курс 1 семестр.",
         "work_year": "2021",
         "work_tags": [
             WORK_TAGS.mirea, WORK_TAGS.learn, WORK_TAGS.cpp
