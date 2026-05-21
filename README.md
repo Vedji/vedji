@@ -1,4 +1,5 @@
-## Hi there 👋
+**Vedji** - **Ponkratov Nickolay**
+[My works](https://vedji.github.io/vedji/)
 
 <!--
 **Vedji/vedji** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
