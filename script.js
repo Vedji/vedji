@@ -21,7 +21,7 @@ const WORK_TAGS = Object.freeze({
 //  + work_year: Дата создания проекта
 //  + work_tags[]: Список тегов для проекта
 const MY_WORKS = [
-    {
+    /*{
         "title": "ДЗ по проедмету \"Взаимодействие с базами данных\"",
         "work_link": "https://github.com/Vedji/itmo-db",
         "desc": "Выполненные домашние задания по предмету \"Взаимодействие с базами данных\"",
@@ -29,7 +29,7 @@ const MY_WORKS = [
         "work_tags": [
             WORK_TAGS.itmo, WORK_TAGS.learn, WORK_TAGS.db
         ],
-    },
+    },*/
     {
         "title": "ДЗ по предмету \"Веб-технологи\"",
         "work_link": "https://github.com/Vedji/itmo-js-sem1",
@@ -45,7 +45,7 @@ const MY_WORKS = [
         "desc": "Мобильное приложение, которое взаимодействует с сервером для чтения и администратирования каталога комиксов.",
         "work_year": "2025",
         "work_tags": [
-            WORK_TAGS.mirea, WORK_TAGS.learn, WORK_TAGS.cpp
+            WORK_TAGS.mirea, WORK_TAGS.learn, WORK_TAGS.kotlin, WORK_TAGS.frontend
         ],
     },
     {
